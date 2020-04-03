@@ -11,3 +11,12 @@ swagger:
     version: "1.0.0"
     title: ${spring.application.name}
     description: "Skeleton app swagger"
+
+# Kafka Topic Config
+# DO NOT CHANGE THE ORDER
+kafka:
+  bootstrapAddress: "localhost:9092"
+  topics:
+    - name: "testTopic"
+      partitionNumber: 1
+      replicationFactor: 1

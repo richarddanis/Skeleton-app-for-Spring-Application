@@ -17,7 +17,7 @@
     <properties>
         <java.version>11</java.version>
 
-        <start-class>com.richard.danis.www.skeleton.Starter</start-class>
+        <start-class>com.richard.danis.www.sandbox.Starter</start-class>
 
         <project.jdk.version>${java.version}</project.jdk.version>
         <project.sourceEncoding>UTF-8</project.sourceEncoding>
@@ -75,6 +75,16 @@
         <dependency>
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-log4j2</artifactId>
+        </dependency>
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-configuration-processor</artifactId>
+        </dependency>
+
+        <!-- Kafka Dependency -->
+        <dependency>
+            <groupId>org.springframework.kafka</groupId>
+            <artifactId>spring-kafka</artifactId>
         </dependency>
 
         <!-- Swagger Dependencies -->
@@ -147,31 +157,31 @@
                                         <exclude>*Stage</exclude>
                                     </excludes>
                                     <limits>
-                                       <!-- <limit>
-                                            <counter>LINE</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>0.7</minimum>
-                                        </limit>
-                                        <limit>
-                                            <counter>INSTRUCTION</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>0.7</minimum>
-                                        </limit>
-                                        <limit>
-                                            <counter>METHOD</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>0.7</minimum>
-                                        </limit>
-                                        <limit>
-                                            <counter>COMPLEXITY</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>0.5</minimum>
-                                        </limit>
-                                        <limit>
-                                            <counter>BRANCH</counter>
-                                            <value>COVEREDRATIO</value>
-                                            <minimum>0.3</minimum>
-                                        </limit>-->
+                                        <!-- <limit>
+                                             <counter>LINE</counter>
+                                             <value>COVEREDRATIO</value>
+                                             <minimum>0.7</minimum>
+                                         </limit>
+                                         <limit>
+                                             <counter>INSTRUCTION</counter>
+                                             <value>COVEREDRATIO</value>
+                                             <minimum>0.7</minimum>
+                                         </limit>
+                                         <limit>
+                                             <counter>METHOD</counter>
+                                             <value>COVEREDRATIO</value>
+                                             <minimum>0.7</minimum>
+                                         </limit>
+                                         <limit>
+                                             <counter>COMPLEXITY</counter>
+                                             <value>COVEREDRATIO</value>
+                                             <minimum>0.5</minimum>
+                                         </limit>
+                                         <limit>
+                                             <counter>BRANCH</counter>
+                                             <value>COVEREDRATIO</value>
+                                             <minimum>0.3</minimum>
+                                         </limit>-->
                                     </limits>
                                 </rule>
                             </rules>

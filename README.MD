@@ -1,4 +1,10 @@
-# Skeleton App for Spring Boot Applications
+# Sandbox App
+
+## Technology Stack
+* Spring
+* Swagger
+* Kafka
+
 ## Prerequisites
 * Java 11
 * Maven 3.5.0+
