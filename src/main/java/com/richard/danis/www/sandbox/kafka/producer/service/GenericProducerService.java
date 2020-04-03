@@ -7,6 +7,12 @@ import org.springframework.kafka.support.SendResult;
 import org.springframework.util.concurrent.ListenableFuture;
 import org.springframework.util.concurrent.ListenableFutureCallback;
 
+/**
+ * Generic kafka message sender.
+ *
+ * @param <K> Serialization Key for Kafka message
+ * @param <V> Serialization value for Kafka message.
+ */
 public abstract class GenericProducerService<K, V> {
 
     private final Logger LOGGER = LoggerFactory.getLogger(getClass());
