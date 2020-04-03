@@ -35,16 +35,15 @@ To run on a different port, e.g. 8090, add:
 # Kafka
 ## Before startup the application
 
-Download Kafka 4.2.1 or later
+Download Kafka 4.2.1 or later: 
 https://kafka.apache.org/downloads
 
-### Zookeeper
-#### Start server -> localhost 2181
+#### Start zookeeper server
 ```
 .\bin\windows\zookeeper-server-start.bat .\config\zookeeper.properties
 ```
 
-#### Start server
+#### Start kafka server
 ```
 .\bin\windows\kafka-server-start.bat .\config\server.properties
 ```
