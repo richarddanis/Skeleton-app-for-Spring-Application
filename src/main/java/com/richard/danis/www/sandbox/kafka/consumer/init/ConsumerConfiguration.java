@@ -18,7 +18,7 @@ public class ConsumerConfiguration {
     private String bootstrapAddress;
 
     @Bean
-    public ConcurrentKafkaListenerContainerFactory<String, String> fooKafkaListenerContainerFactory() {
+    public ConcurrentKafkaListenerContainerFactory<String, String> testKafkaListenerContainerFactory() {
         return kafkaListenerContainerFactory("test");
     }
 
