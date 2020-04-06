@@ -7,7 +7,6 @@ import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
 import javax.validation.constraints.NotBlank;
-import javax.validation.constraints.NotNull;
 import javax.validation.constraints.Size;
 import java.io.Serializable;
 import java.time.LocalDate;
@@ -26,10 +25,10 @@ public class Person implements BusinessEntity<Long>, Serializable {
     private String name;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
-    @NotNull
     private LocalDate creationDate;
 
     public Person() {
+        creationDate = LocalDate.now();
     }
 
     @Override

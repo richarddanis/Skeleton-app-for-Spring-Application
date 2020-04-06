@@ -4,6 +4,7 @@
 * Spring
 * Swagger
 * Kafka
+* Hibernate
 
 ## Prerequisites
 * Java 11
