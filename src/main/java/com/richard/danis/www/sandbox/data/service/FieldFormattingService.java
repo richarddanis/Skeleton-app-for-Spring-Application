@@ -1,6 +1,5 @@
 package com.richard.danis.www.sandbox.data.service;
 
-import com.richard.danis.www.sandbox.rest.controller.RestAsyncController;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.core.convert.ConversionService;
@@ -12,7 +11,6 @@ import javax.annotation.PostConstruct;
 public class FieldFormattingService {
 
     private final Logger LOGGER = LoggerFactory.getLogger(FieldFormattingService.class);
-
     private ConversionService conversionService;
 
     public FieldFormattingService(ConversionService conversionService) {
@@ -26,7 +24,7 @@ public class FieldFormattingService {
     }
 
     @PostConstruct
-    private void justRun(){
+    private void justRun() {
         convert("5");
     }
 }

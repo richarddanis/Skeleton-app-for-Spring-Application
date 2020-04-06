@@ -4,6 +4,9 @@ spring:
     name: @project.name@
   main:
     allow-bean-definition-overriding: true
+  h2:
+    console:
+      enabled: true
 
 # Swagger Documentation
 swagger:
@@ -11,3 +14,4 @@ swagger:
     version: "1.0.0"
     title: ${spring.application.name}
     description: "Skeleton app swagger"
+
