@@ -1,0 +1,8 @@
+# Kafka Topic Config
+# DO NOT CHANGE THE ORDER
+kafka:
+  bootstrapAddress: "localhost:9092"
+  topics:
+    - name: "testTopic"
+      partitionNumber: 1
+      replicationFactor: 1

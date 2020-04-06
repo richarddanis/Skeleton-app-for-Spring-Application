@@ -32,6 +32,9 @@
         <!-- Swagger -->
         <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
 
+        <!-- Test -->
+        <jgiven.version>0.18.2</jgiven.version>
+
         <!-- Quality check -->
         <maven-pmd-plugin.version>3.13.0</maven-pmd-plugin.version>
         <maven-jxr-plugin.version>3.0.0</maven-jxr-plugin.version>
@@ -104,12 +107,18 @@
             <groupId>org.springframework.boot</groupId>
             <artifactId>spring-boot-starter-test</artifactId>
             <scope>test</scope>
-            <exclusions>
-                <exclusion>
-                    <groupId>org.junit.vintage</groupId>
-                    <artifactId>junit-vintage-engine</artifactId>
-                </exclusion>
-            </exclusions>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.jgiven</groupId>
+            <artifactId>jgiven-junit</artifactId>
+            <version>${jgiven.version}</version>
+            <scope>test</scope>
+        </dependency>
+        <dependency>
+            <groupId>com.tngtech.jgiven</groupId>
+            <artifactId>jgiven-spring</artifactId>
+            <version>${jgiven.version}</version>
+            <scope>test</scope>
         </dependency>
     </dependencies>
 

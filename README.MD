@@ -47,3 +47,8 @@ https://kafka.apache.org/downloads
 ```
 .\bin\windows\kafka-server-start.bat .\config\server.properties
 ```
+
+You must add the following VM options in order for logging to work properly:
+```
+-Dapplication.home=. -Dspring.profiles.active=kafka -Dapplication.environment=kafka
+```

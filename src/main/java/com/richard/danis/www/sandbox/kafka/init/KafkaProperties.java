@@ -1,6 +1,7 @@
 package com.richard.danis.www.sandbox.kafka.init;
 
 import org.springframework.boot.context.properties.ConfigurationProperties;
+import org.springframework.context.annotation.Profile;
 import org.springframework.stereotype.Component;
 
 import java.util.ArrayList;
@@ -11,6 +12,7 @@ import java.util.List;
  */
 @ConfigurationProperties(prefix = "kafka")
 @Component
+@Profile("kafka")
 public class KafkaProperties {
 
     private List<Topics> topics = new ArrayList<>();
