@@ -12,8 +12,6 @@ import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.PostConstruct;
-import javax.persistence.PostRemove;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -40,13 +38,5 @@ public class PersonController {
             LOGGER.error("Unrecognized error for find person by id: {} , exception: {}", id, e);
             return new ResponseEntity<>(HttpStatus.INTERNAL_SERVER_ERROR);
         }
-    }
-
-    @PostConstruct
-    public void init() {
-        Person person = new Person();
-        person.setName("Fruzsi");
-        Person savedPerson = personService.save(person);
-        LOGGER.info("Person saved into database: {}", savedPerson);
     }
 }

@@ -7,7 +7,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class PersonService extends AbstractGenericBusinessEntityServiceImpl<Person, Long> {
 
-    protected PersonService(JpaRepository<Person, Long> repository) {
-        super(repository);
+    protected PersonService(JpaRepository<Person, Long> personRepository) {
+        super(personRepository);
     }
 }

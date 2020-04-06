@@ -3,6 +3,7 @@ package com.richard.danis.www.sandbox.hibernate.model;
 import com.fasterxml.jackson.annotation.JsonIgnoreProperties;
 import org.springframework.format.annotation.DateTimeFormat;
 
+import javax.persistence.Column;
 import javax.persistence.Entity;
 import javax.persistence.GeneratedValue;
 import javax.persistence.Id;
@@ -18,17 +19,41 @@ public class Person implements BusinessEntity<Long>, Serializable {
 
     @Id
     @GeneratedValue
+    @Column(unique = true, name = "ID")
     private Long id;
 
     @NotBlank
     @Size(max = 1000)
-    private String name;
+    @Column(unique = true, nullable = false, name = "USER_NAME")
+    private String userName;
+
+    @Column(nullable = false, name = "PASSWORD")
+    private String password;
+
+    @Column(nullable = false, name = "FULL_NAME")
+    private String fullName;
 
     @DateTimeFormat(pattern = "yyyy-MM-dd")
     private LocalDate creationDate;
 
     public Person() {
         creationDate = LocalDate.now();
+    }
+
+    public String getPassword() {
+        return password;
+    }
+
+    public void setPassword(String password) {
+        this.password = password;
+    }
+
+    public String getFullName() {
+        return fullName;
+    }
+
+    public void setFullName(String fullName) {
+        this.fullName = fullName;
     }
 
     @Override
@@ -40,12 +65,12 @@ public class Person implements BusinessEntity<Long>, Serializable {
         this.id = id;
     }
 
-    public String getName() {
-        return name;
+    public String getUserName() {
+        return userName;
     }
 
-    public void setName(String name) {
-        this.name = name;
+    public void setUserName(String name) {
+        this.userName = name;
     }
 
     public LocalDate getCreationDate() {
@@ -62,20 +87,24 @@ public class Person implements BusinessEntity<Long>, Serializable {
         if (o == null || getClass() != o.getClass()) return false;
         Person person = (Person) o;
         return Objects.equals(id, person.id) &&
-                Objects.equals(name, person.name) &&
+                Objects.equals(userName, person.userName) &&
+                Objects.equals(password, person.password) &&
+                Objects.equals(fullName, person.fullName) &&
                 Objects.equals(creationDate, person.creationDate);
     }
 
     @Override
     public int hashCode() {
-        return Objects.hash(id, name, creationDate);
+        return Objects.hash(id, userName, password, fullName, creationDate);
     }
 
     @Override
     public String toString() {
         return "Person{" +
-                "id='" + id + '\'' +
-                ", name='" + name + '\'' +
+                "id=" + id +
+                ", userName='" + userName + '\'' +
+                ", password='" + password + '\'' +
+                ", fullName='" + fullName + '\'' +
                 ", creationDate=" + creationDate +
                 '}';
     }
