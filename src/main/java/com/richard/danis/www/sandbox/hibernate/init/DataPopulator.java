@@ -45,8 +45,8 @@ public class DataPopulator {
         LOGGER.info("Person1 saved: {}", person1);
 
         AuthenticationGroup authenticationGroup = new AuthenticationGroup();
-        authenticationGroup.setAuthGroup("USER");
-        authenticationGroup.setAuthGroup("ADMIN");
+        authenticationGroup.setAuthGroup("ROLE_USER");
+        authenticationGroup.setAuthGroup("ROLE_ADMIN");
         authenticationGroup.setPersonName("fruzsi");
         groupRepository.save(authenticationGroup);
         LOGGER.info("Group added to person: {}", authenticationGroup);
