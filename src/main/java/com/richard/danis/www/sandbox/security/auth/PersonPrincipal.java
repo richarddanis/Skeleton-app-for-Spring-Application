@@ -2,9 +2,11 @@ package com.richard.danis.www.sandbox.security.auth;
 
 import com.richard.danis.www.sandbox.hibernate.model.Person;
 import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.Collection;
+import java.util.Collections;
 
 public class PersonPrincipal implements UserDetails {
 
@@ -17,36 +19,36 @@ public class PersonPrincipal implements UserDetails {
 
     @Override
     public Collection<? extends GrantedAuthority> getAuthorities() {
-        return null;
+        return Collections.singletonList(new SimpleGrantedAuthority("USER"));
     }
 
     @Override
     public String getPassword() {
-        return null;
+        return this.person.getPassword();
     }
 
     @Override
     public String getUsername() {
-        return null;
+        return this.person.getPassword();
     }
 
     @Override
     public boolean isAccountNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isAccountNonLocked() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isCredentialsNonExpired() {
-        return false;
+        return true;
     }
 
     @Override
     public boolean isEnabled() {
-        return false;
+        return true;
     }
 }

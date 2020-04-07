@@ -5,7 +5,7 @@
 * Swagger
 * Kafka
 * Hibernate
-* Security
+* Security - JDBC implementation
 
 ## Prerequisites
 * Java 11
