@@ -11,7 +11,6 @@ import org.springframework.kafka.core.KafkaAdmin;
 
 import java.util.Collections;
 
-
 /**
  * Topic configuration to Kafka.
  */

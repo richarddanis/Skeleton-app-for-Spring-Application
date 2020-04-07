@@ -7,12 +7,12 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import org.springframework.security.access.prepost.PreAuthorize;
 import org.springframework.web.bind.annotation.GetMapping;
 import org.springframework.web.bind.annotation.PathVariable;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RestController;
 
-import javax.annotation.PostConstruct;
 import java.util.NoSuchElementException;
 
 @RestController
@@ -41,13 +41,9 @@ public class PersonController {
         }
     }
 
-    @PostConstruct
-    public void addSomePerson() {
-        Person person = new Person();
-        person.setFullName("TestPerson");
-        person.setPassword("1234");
-        person.setUserName("person");
-        LOGGER.info("!!! -> Person saved to database: {}", person);
-        personService.save(person);
+    @GetMapping("/all")
+    @PreAuthorize("hasRole('ROLE_ADMIN')")
+    public Iterable<Person> allPerson() {
+        return personService.findAll();
     }
 }
