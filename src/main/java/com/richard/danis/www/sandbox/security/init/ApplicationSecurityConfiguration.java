@@ -63,6 +63,11 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
             .anyRequest()
             .authenticated()
             .and()
+            .formLogin()
+                .loginPage("/login.html")
+                .loginProcessingUrl("/login")
+                .defaultSuccessUrl("/index.html", true)
+            .and()
             .headers().frameOptions().disable()  //H2
             .and()
             .httpBasic();

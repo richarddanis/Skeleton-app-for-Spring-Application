@@ -7,7 +7,7 @@ import org.springframework.web.bind.annotation.RequestMapping;
  * Swagger home controller
  */
 @Controller
-public class HomeController {
+public class SwaggerController {
 
     @RequestMapping("/")
     public String home() {
