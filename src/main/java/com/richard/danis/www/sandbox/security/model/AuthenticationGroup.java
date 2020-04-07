@@ -61,4 +61,13 @@ public class AuthenticationGroup {
     public int hashCode() {
         return Objects.hash(id, personName, authGroup);
     }
+
+    @Override
+    public String toString() {
+        return "AuthenticationGroup{" +
+                "id=" + id +
+                ", personName='" + personName + '\'' +
+                ", authGroup='" + authGroup + '\'' +
+                '}';
+    }
 }
