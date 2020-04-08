@@ -12,12 +12,12 @@ public class SomethingHappenedListener implements ApplicationListener<SomethingH
     private final Logger LOGGER = LoggerFactory.getLogger(PersonController.class);
 
     @Override
-    public void onApplicationEvent(SomethingHappenedEvent onRegistrationCompleteEvent) {
+    public void onApplicationEvent(SomethingHappenedEvent event) {
         try {
             Thread.sleep(2000L);
         } catch (InterruptedException e) {
             e.printStackTrace();
         }
-        LOGGER.info("Event called: {}", onRegistrationCompleteEvent.getLocale());
+        LOGGER.info("Event called: {}", event.getLocale());
     }
 }
