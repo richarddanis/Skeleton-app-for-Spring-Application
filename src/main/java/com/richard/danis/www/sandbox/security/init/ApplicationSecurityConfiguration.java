@@ -13,6 +13,7 @@ import org.springframework.security.core.authority.mapping.GrantedAuthoritiesMap
 import org.springframework.security.core.authority.mapping.SimpleAuthorityMapper;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
 
 @Configuration
 @EnableWebSecurity
@@ -50,7 +51,7 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
     public GrantedAuthoritiesMapper authoritiesMapper() {
         SimpleAuthorityMapper authorityMapper = new SimpleAuthorityMapper();
         authorityMapper.setConvertToLowerCase(true);
-        authorityMapper.setDefaultAuthority("ROLE");
+        authorityMapper.setDefaultAuthority("USER");
         return authorityMapper;
     }
 
@@ -59,14 +60,19 @@ public class ApplicationSecurityConfiguration extends WebSecurityConfigurerAdapt
         http.csrf()
             .disable()
             .authorizeRequests()
-            .antMatchers("/", "/h2-console/*", "/swagger-ui.html").permitAll()
+            .antMatchers("/", "/h2-console/*", "/swagger-ui.html", "/index", "/index.html").permitAll()
             .anyRequest()
             .authenticated()
             .and()
             .formLogin()
-                .loginPage("/login.html")
-                .loginProcessingUrl("/login")
-                .defaultSuccessUrl("/index.html", true)
+            .defaultSuccessUrl("/index", true)
+            .and()
+            .logout()
+            .invalidateHttpSession(true)
+            .clearAuthentication(true)
+            .logoutRequestMatcher(new AntPathRequestMatcher(("/logout")))
+            .logoutSuccessUrl("/index")
+            .permitAll()
             .and()
             .headers().frameOptions().disable()  //H2
             .and()

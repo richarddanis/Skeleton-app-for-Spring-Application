@@ -1,5 +1,5 @@
 <!DOCTYPE HTML>
-<html xmlns:sec="http://www.w3.org/1999/xhtml">
+<html xmlns:sec="http://www.w3.org/1999/xhtml" xmlns:th="http://www.w3.org/1999/xhtml">
 <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/css/uikit.min.css"/>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit.min.js"></script>
 <script src="https://cdn.jsdelivr.net/npm/uikit@3.3.7/dist/js/uikit-icons.min.js"></script>
@@ -11,16 +11,14 @@
 <body>
 <div class="uk-background-muted uk-background-cover">
     <div class="uk-position-center">
-        <a href class="uk-display-block uk-card uk-card-body uk-card-default uk-link-toggle uk-width-medium">
-            <h3 sec:authorize="isAnonymous()" class="uk-card-title">
-                <span class="uk-link-heading">Login</span>
-                <span uk-icon="sign-in"></span>
-            </h3>
-            <h3 sec:authorize="isAuthenticated()" class="uk-card-title">
-                <span class="uk-link-heading">Logout</span>
-                <span uk-icon="sign-out"></span>
-            </h3>
-        </a>
+        <h3 sec:authorize="isAnonymous()" class="uk-card-title">
+            <a th:href="@{'/login'}" class="uk-link-heading">Login</a>
+            <span uk-icon="sign-in"></span>
+        </h3>
+        <h3 sec:authorize="isAuthenticated()" class="uk-card-title">
+            <a th:href="@{'/logout'}" class="uk-link-heading">Logout</a>
+            <span uk-icon="sign-out"></span>
+        </h3>
     </div>
 </div>
 </body>
