@@ -30,7 +30,7 @@
         <run.spring.profiles.active>${run.application.environment}</run.spring.profiles.active>
 
         <!-- Swagger -->
-        <springfox-swagger2.version>2.9.2</springfox-swagger2.version>
+        <springfox-swagger2.version>2.10.0</springfox-swagger2.version>
 
         <!-- Test -->
         <jgiven.version>0.18.2</jgiven.version>
